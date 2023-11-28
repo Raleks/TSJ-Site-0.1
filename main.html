@@ -1,0 +1,297 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css\main.css" rel="stylesheet" type="text/css" media="screen">
+</head>
+<style>
+    .image-container {
+    position: relative;
+}
+
+.image-overlay {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 255, 0.305); 
+    border-radius: 10px;
+    transition: opacity 0.5s ease;
+}
+
+.image-container img {
+    height: 500px;
+    width: 1500px;
+    border-radius: 10px;
+}
+
+    .gallery-container {
+        margin: 20px auto;
+        text-align: center;
+        border-radius: 10px;
+        margin-top: -70px
+    }
+
+    .image-container {
+    position: relative; 
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 255, 0.436); 
+    border-radius: 10px; 
+}
+
+.image-container img {
+    height: 500px;
+    transition: transform 0.5s ease;
+    border-radius: 10px;
+    width: 1500px;
+}
+    .gallery-buttons {
+        margin-top: 10px;
+    }
+
+    .gallery-button {
+        padding: 10px 15px;
+        margin: 0 5px;
+        cursor: pointer;
+        margin-top:-125px;
+        margin-left:-800px;
+        position: relative;
+        background: none;
+        font-size: 500%;
+        animation: none;
+        text-decoration: none;
+        transition: none;
+        transform: none;
+        
+    }
+    .animated-text-container {
+        text-align: center;
+        margin-top: 100px;
+    }
+
+    .animated-text {
+        position: absolute;
+    left: 50%; 
+        opacity: 0;
+        transform: translateX(100%);
+        animation: slideIn 1s forwards;
+        color:white;
+        background-color: #1b1a1a;
+        background-size: 500px;
+        margin-top:185px;
+        font-size: 70px;
+        margin-left:-430px;
+        z-index: 999;
+        padding: 10px;
+    }
+    .animated-text.second-text {
+        position: absolute;
+    left: 50%; 
+        opacity: 0;
+        transform: translateX(100%);
+        animation: slideIn 1s forwards;
+        color:white;
+        background-color: #1b1a1a;
+        background-size: 500px;
+        margin-top:290px;
+        font-size: 70px;
+        margin-left:-380px;
+        z-index: 999;
+        padding: 10px;
+
+}
+.animated-text.third-text {
+background:none;  
+  margin-top: 70px; 
+  margin-left:370px;
+    font-size: 30px;
+    animation-delay: 1s; 
+}
+
+.animated-text.fourh-text {
+    background:none;  
+  margin-top: 420px; 
+  margin-left:200px;
+    font-size: 30px;
+    animation-delay: 1s; 
+}
+    @keyframes slideIn {
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+</style>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="main.html">Главная</a></li>
+                <li class="dropdown">
+                    <a href="#">Услуги</a>
+                    <ul class="dropdown-content">
+                        <li><a href="remont.html">Заказать ремонт</a></li>
+                        <li><a href="nabi199719@gmail.com">Написать на почту</a></li>
+                    </ul>
+                </li>
+                <li><a href="galery.html">Галерея</a></li>
+                <li><a href="sot.html">Сотрудники</a></li>
+                <li><a href="payment.html">Цены</a></li>
+
+            </ul>
+        </nav>
+    
+        <div id="root"></div>
+
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script type="text/babel">
+            function Gallery({ images }) {
+    const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
+    const [isExiting, setIsExiting] = React.useState(false);
+
+    const changeImage = (nextIndex) => {
+        setIsExiting(true);
+
+        setTimeout(() => {
+            setCurrentImageIndex(nextIndex);
+            setIsExiting(false);
+        }, 400);
+    };
+
+    const nextImage = () => {
+        changeImage((currentImageIndex + 1) % images.length);
+    };
+
+    const previousImage = () => {
+        changeImage((currentImageIndex - 1 + images.length) % images.length);
+    };
+
+    const imageStyle = isExiting
+        ? { transform: 'translateX(100%)', opacity: 0, transition: 'transform 0.9s ease, opacity 0.9s ease' }
+        : { transition: 'transform 0.9s ease, opacity 0.9s ease' };
+
+    return (
+        <div className="gallery-container">
+            <div className="image-container">
+                <img 
+                    src={images[currentImageIndex]} 
+                    alt={`Gallery image ${currentImageIndex + 1}`}
+                    style={imageStyle}
+                />
+                <div className="image-overlay" />
+            </div>
+            <div className="gallery-buttons">
+                <button className="gallery-button" onClick={nextImage}>&gt;</button>
+            </div>
+        </div>
+    );
+}
+        
+            function AnimatedText() {
+    return (
+        <div className="animated-text-container">
+            <h1 className="animated-text">ТСЖ Сайт </h1>
+            <h2 className="animated-text second-text">Это всё для вас</h2>
+            <h2 className="animated-text third-text">Самые лучший ЖК</h2>
+            <h2 className="animated-text fourh-text">20 сотрудников в штате</h2>
+        </div>
+    );
+}
+        
+            function App() {
+                const images = [
+                    'https://img3.akspic.ru/crops/4/4/6/0/7/170644/170644-nyu_jork-gorod-vershina_skaly-oblako-zdanie-3840x2160.jpg',
+                    'https://storge.pic2.me/c/1360x800/248/5fbd60948c6a53.84252270.jpg',
+                ];
+        
+                return (
+                    <div>
+                        <AnimatedText />
+                        <Gallery images={images} />
+                    </div>
+                );
+            }
+        
+            ReactDOM.render(<App />, document.getElementById('root'));
+        </script>
+        
+    </div>
+    <main>
+        <div class="sidebar">
+            <div class="sidebar-item">
+                <h3>Контакты</h3>
+                <p>
+                    Телефон: 8 (495)-669-80-70 -
+                    e-mail: relax@gamil.com
+                </p>
+            </div>
+            <div class="sidebar-item">
+                <h3>Телефоны ТСЖ</h3>
+                <p>Заместитель председателя правления: 8-495-669-80-70</p>
+            </div>
+            <div class="sidebar-item">
+                <h3>Адрес 3</h3>
+                <p>Адрес: Улы Дала, г. Астана, 65/1</p>
+            </div>
+        </div>
+        <div class="news">
+            <h2>Последние новости</h2>
+            <h3>25.10.2023 Необходимо провести поверку счетчиков!</h3>
+            <p>Уважаемые жители! В срок до 25.11.2023 необходимо провести поверку счетчиков и передать данные на электронную почту newbuhgalter.avangard@mail.ru.  Копии поверочных документов надо отнести в офис ТСЖ Павлову А.Н.   Список квартир, где необходима поверка счетчиков, находится на охране каждого подъезда.   Председатель правления ТСЖ «АВАНГАРД» Бережная В.А.</p>
+            <h4>12.09.2023 Увольнение управляющего ТСЖ</h4>
+            <p>11.09.2023 был уволен управляющий ТСЖ. Управляющий уволен за неоднократное неисполнение своих должностных обязанностей, бездействие при аварийной ситуации во время пуска горячей воды 21.07.2023, когда вода длительное время лилась по квартирам с верхних этажей. Кроме того, во время пожарной проверки в августе этого года были выявлены многочисленные нарушения пожарной безопасности в нашем доме, за которые управляющий несёт непосредственную ответственность. Это уже повторная проверка за последние два года с выявленными нарушениями при управляющем и штрафом более 300 000 рублей. В 2021-м году жителям так же пришлось заплатить штраф 150 000 рублей.</p>    
+            <h5>03.08.2023 Бухгалтер ТСЖ</h5>
+            <p>02.08.2023 в связи с нарушениями и ошибками в работе была уволена главный бухгалтер ТСЖ. В настоящее время обязанности бухгалтера выполняет председатель правления. Просьба по всем возникающим вопросам и сдаче показаний счетчиков обращаться по почте:   newbuhgalter.avangard@mail.ru, а также сдавать показания на данном сайте или в бумажном виде в ящики подъездов. Другие адреса бухгалтерии ТСЖ больше не работают.            </p>
+        </div>
+        <div class="overlay"></div> 
+        <div class="calculator">
+            <h2>Калькулятор коммунальных услуг</h2>
+            <form id="calc-form">
+                <label for="electricity">Электроэнергия (кВтч):</label>
+                <input type="number" id="electricity" required>
+                <br>
+                <label for="coldWater">Холодная вода (м³):</label>
+                <input type="number" id="coldWater" required>
+                <br>
+                <label for="hotWater">Горячая вода (м³):</label>
+                <input type="number" id="hotWater" required>
+                <br>
+                <button type="button" id="calculate">Рассчитать</button>
+                <div id="result">
+                    Результат расчета будет здесь.
+                </div>
+            </form>            
+        </div>
+
+        </div>
+        <div class="overlay"></div>
+        <div class="chat">
+            <h2>Чат</h2>
+            <div id="chat-messages"></div>
+            <input type="text" id="message" placeholder="Введите сообщение">
+        </div>
+    </main>
+    <div class="footer">
+        <h><strong>Официальный сайт ТСЖ «RELAX». Телефон: 8 (495)-669-80-70 - офис, 8(495)-503-79-82 - пост охраны, e-mail: relax@gmail.com </strong></h>
+    </div>
+    
+    <script src="js\main.js">
+    </script>
+    
+</body>
+</html>

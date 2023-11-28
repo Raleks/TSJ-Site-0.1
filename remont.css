@@ -1,0 +1,182 @@
+.dropdown-content {
+    display: none;
+    color:black;
+    z-index: 999;
+
+
+}
+header {
+    width: 100%;
+    position: relative;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    margin-left: 400px;
+    font-size: 30px;
+    margin-top:-38px;
+
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    padding: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+}
+
+
+
+
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    color:black;
+}
+
+.dropdown-content {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    list-style-type: none;
+    color:black;
+
+}
+
+.dropdown-content a {
+    color: #000;
+    text-decoration: solid; 
+}
+
+header {
+    color: black;
+    padding: 5px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+text-decoration: solid;
+margin-top: 30px;
+margin-left:17px;
+width: 95%;
+height: 5%;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin: 10px;
+    position: relative;
+}
+
+nav a {
+    color:black;
+    text-decoration: none;
+    text-align: center;
+}
+
+nav ul li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #333;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+
+nav ul li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #333;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 999
+}
+
+nav ul li:hover ul {
+    display: block;
+}
+
+        main {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .repair-form {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            text-align: left;
+            width: 95%;
+            height: 500px;
+            margin-left: -10px;
+            margin-top: 25px;
+            position: relative;
+        }
+
+        textarea, input, button {
+            width: 80%;
+            padding: 5px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        textarea:hover, input:hover, button:hover {
+            transform: scale(1.05);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color:white;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-left: 0px;
+            margin-top: 10px;
+            border-radius: 20px;
+            width: 81%;
+        }
+
+
+        .footer {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            margin-top: 30px;
+        }

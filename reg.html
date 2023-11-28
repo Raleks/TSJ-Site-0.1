@@ -1,0 +1,24 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css\reg.css" rel="stylesheet" type="text/css" media="screen">
+</head>
+<body>
+    <div class="registration-box">
+        <img src="logo.png" alt="Логотип" width="200" height="200" class="logo">
+        <h1>Регистрация</h1>
+        <form id="registration-form">
+            <input type="text" placeholder="Имя" required id="name">
+            <input type="email" placeholder="Email" required>
+            <div class="password-container">
+                <input type="password" placeholder="Пароль" required id="password">
+                <span class="password-toggle" id="togglePassword">👁️</span>
+            </div>
+            <p id="password-error"></p>
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+    </div>
+    <script src="js\reg.js">
+    </script>
+</body>
+</html>

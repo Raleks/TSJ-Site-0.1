@@ -1,0 +1,56 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css\galery.css" rel="stylesheet" type="text/css" media="screen">
+<style></style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="main.html">Главная</a></li>
+                <li class="dropdown">
+                    <a href="#">Услуги</a>
+                    <ul class="dropdown-content">
+                        <li><a href="remont.html">Заказать ремонт</a></li>
+                        <li><a href="nabi199719@gmail.com">Написать на почту</a></li>
+                    </ul>
+                </li>
+                <li><a href="galery.html">Галерея</a></li>
+                <li><a href="sot.html">Сотрудники</a></li>
+                <li><a href="payment.html">Цены</a></li>
+
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="typed-text-container">
+            <span id="typed-text"></span>
+        <div class="gallery">
+            <img src="galery\1.jpeg" alt="Image 1">
+            <img src="galery\2.jpeg" alt="Image 2">
+            <img src="galery\3.jpeg" alt="Image 3">
+            <img src="galery\4.jpeg" alt="Image 4">
+            <img src="galery\5.jpeg" alt="Image 5">
+            <img src="galery\6.jpeg" alt="Image 6">
+            <img src="galery\7.jpeg" alt="Image 7">
+            <img src="galery\8.jpeg" alt="Image 8">
+        </div>
+    </main>
+    <div class="footer">
+        <strong>Официальный сайт ТСЖ «RELAX». Телефон: 8 (495)-669-80-70 - офис, 8(495)-503-79-82 - пост охраны, e-mail: relax@gmail.com</strong>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+        <script>
+            $(document).ready(function() {
+                var typed = new Typed('#typed-text', {
+                    strings: ["Добро пожаловать в галерею ТСЖ RELAX!", "Здесь вы найдете фотографии наших мероприятий и объектов."],
+                    typeSpeed: 50,
+                    backSpeed: 50,
+                    loop: true
+                });
+    
+            });
+        </script>
+    </body>
+    </html>
